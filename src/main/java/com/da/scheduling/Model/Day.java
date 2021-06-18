@@ -1,18 +1,11 @@
 package com.da.scheduling.Model;
 
-public class Bell {
-
-
+public class Day {
     private int id;
     private String label;
-    private int bellOfDay;
+    private int dayOfWeek;
 
-    public int getBellOfDay() { return bellOfDay; }
-
-    public void setBellOfDay(int bellOfDay) { this.bellOfDay = bellOfDay; }
-
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
 
@@ -26,5 +19,13 @@ public class Bell {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public int getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(int dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 }
