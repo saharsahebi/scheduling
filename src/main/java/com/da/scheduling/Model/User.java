@@ -12,7 +12,7 @@ public class User {
     private int adminId;
     private Admin admin;
     private int studentId;
-    private Student studnt;
+    private Student student;
 
     public int getId(){ return id;}
     public void setId(int id){ this.id=id;}
@@ -69,12 +69,12 @@ public class User {
         this.admin = admin;
     }
 
-    public Student getStudnt() {
-        return studnt;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudnt(Student studnt) {
-        this.studnt = studnt;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
 }
