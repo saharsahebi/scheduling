@@ -1,10 +1,9 @@
 package com.da.scheduling.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Set;
+
 @Entity
 public class Course {
     @Id
@@ -12,9 +11,10 @@ public class Course {
     private int id;
     private String title;
     private int unitsCount;
-
-    private ArrayList<TimeTable> timeTables;
-    private ArrayList<Master> masters;
+    @OneToMany
+    private Set<TimeTable> timeTables;
+    @OneToMany
+    private Set<Master> masters;
 
     public int getId() {
         return id;
@@ -40,19 +40,19 @@ public class Course {
         this.unitsCount = unitsCount;
     }
 
-    public ArrayList<TimeTable> getTimeTables() {
+    public Set<TimeTable> getTimeTables() {
         return timeTables;
     }
 
-    public void setTimeTables(ArrayList<TimeTable> timeTables) {
+    public void setTimeTables(Set<TimeTable> timeTables) {
         this.timeTables = timeTables;
     }
 
-    public ArrayList<Master> getMasters() {
+    public Set<Master> getMasters() {
         return masters;
     }
 
-    public void setMasters(ArrayList<Master> masters) {
+    public void setMasters(Set<Master> masters) {
         this.masters = masters;
     }
 }

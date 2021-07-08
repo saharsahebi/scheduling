@@ -1,18 +1,21 @@
 package com.da.scheduling.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Set;
+
 @Entity
 public class TimeTable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+    @OneToOne
     private Master master;
-    private ArrayList<Student> students;
-    private ArrayList<TimeTableBell> timeTableBells;
+    @OneToMany
+    private Set<Student> students;
+    @OneToMany
+    private Set<TimeTableBell> timeTableBells;
+    @OneToOne
     private Course course;
 
     public int getId() {
@@ -30,19 +33,19 @@ public class TimeTable {
         this.master = master;
     }
 
-    public ArrayList<Student> getStudents() {
+    public Set<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(ArrayList<Student> students) {
+    public void setStudents(Set<Student> students) {
         this.students = students;
     }
 
-    public ArrayList<TimeTableBell> getTimeTableBells() {
+    public Set<TimeTableBell> getTimeTableBells() {
         return timeTableBells;
     }
 
-    public void setTimeTableBells(ArrayList<TimeTableBell> timeTableBells) {
+    public void setTimeTableBells(Set<TimeTableBell> timeTableBells) {
         this.timeTableBells = timeTableBells;
     }
 

@@ -1,20 +1,23 @@
 package com.da.scheduling.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 @Entity
 public class Master {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+    @OneToOne
     private User user;
-    private List<TimeTableBell> timeTableBells;
-    private List<TimeTable> timeTables;
-    private List<Course> courses;
+    @OneToMany
+    private Set<TimeTableBell> timeTableBells;
+    @OneToMany
+    private Set<TimeTable> timeTables;
+    @OneToMany
+    private Set<Course> courses;
 
     public int getId() {
         return id;
@@ -32,27 +35,27 @@ public class Master {
         this.user = user;
     }
 
-    public List<TimeTableBell> getTimeTableBells() {
+    public Set<TimeTableBell> getTimeTableBells() {
         return timeTableBells;
     }
 
-    public void setTimeTableBells(List<TimeTableBell> timeTableBells) {
+    public void setTimeTableBells(Set<TimeTableBell> timeTableBells) {
         this.timeTableBells = timeTableBells;
     }
 
-    public List<TimeTable> getTimeTables() {
+    public Set<TimeTable> getTimeTables() {
         return timeTables;
     }
 
-    public void setTimeTables(List<TimeTable> timeTables) {
+    public void setTimeTables(Set<TimeTable> timeTables) {
         this.timeTables = timeTables;
     }
 
-    public List<Course> getCourses() {
+    public Set<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(List<Course> courses) {
+    public void setCourses(Set<Course> courses) {
         this.courses = courses;
     }
 }

@@ -1,17 +1,17 @@
 package com.da.scheduling.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class TimeTableBell {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+    @OneToOne
     private Day day;
+    @OneToOne
     private Bell bell;
+    @ManyToOne
     private TimeTable timeTable;
 
     public int getId() {

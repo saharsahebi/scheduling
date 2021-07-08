@@ -2,24 +2,32 @@ package com.da.scheduling.Model;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Admin {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
-    private int userId;
 
-    public int getUserId() {
-        return userId;
+    private int id;
+    private int usersId;
+    @OneToOne
+    private User user;
+
+    public int getUsersId() {
+        return usersId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsersId(int usersId) {
+        this.usersId = usersId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getId() {

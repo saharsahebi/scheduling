@@ -8,3 +8,8 @@ import org.springframework.stereotype.Repository;
 public interface AdminRepo extends CrudRepository<Admin,Integer> {
 
 }
+
+
+
+
+

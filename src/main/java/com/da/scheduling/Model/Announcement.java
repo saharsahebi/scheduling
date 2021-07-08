@@ -1,16 +1,15 @@
 package com.da.scheduling.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 public class Announcement {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
-    private int timeTableId;
+    private int timeTablesId;
+    @OneToOne
     private TimeTable timeTable;
     private String message;
 
@@ -22,12 +21,12 @@ public class Announcement {
         this.id = id;
     }
 
-    public int getTimeTableId() {
-        return timeTableId;
+    public int getTimeTablesId() {
+        return timeTablesId;
     }
 
-    public void setTimeTableId(int timeTableId) {
-        this.timeTableId = timeTableId;
+    public void setTimeTablesId(int timeTablesId) {
+        this.timeTablesId = timeTablesId;
     }
 
     public TimeTable getTimeTable() {

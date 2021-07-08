@@ -1,9 +1,6 @@
 package com.da.scheduling.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -14,13 +11,27 @@ public class User {
     private String firstName;
     private String password;
     private String code;
-    private String rule;
-    private int masterId;
+    private String role;
+    private int mastersId;
+    @OneToOne
     private Master master;
-    private int adminId;
+    private int adminsId;
+    @OneToOne
     private Admin admin;
-    private int studentId;
+    private int studentsId;
+    @OneToOne
     private Student student;
+
+    private String username;
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getId(){ return id;}
     public void setId(int id){ this.id=id;}
@@ -36,29 +47,37 @@ public class User {
 
     public String getCode() { return code; }
     public void setCode(String code) { this.code = code; }
-    
-    public int getMasterId() {
-        return masterId;
+
+    public String getRole() {
+        return role;
     }
 
-    public void setMasterId(int masterId) {
-        this.masterId = masterId;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public int getAdminId() {
-        return adminId;
+    public int getMastersId() {
+        return mastersId;
     }
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
+    public void setMastersId(int mastersId) {
+        this.mastersId = mastersId;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public int getAdminsId() {
+        return adminsId;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setAdminsId(int adminsId) {
+        this.adminsId = adminsId;
+    }
+
+    public int getStudentsId() {
+        return studentsId;
+    }
+
+    public void setStudentsId(int studentsId) {
+        this.studentsId = studentsId;
     }
 
     public Master getMaster() {
